@@ -1,0 +1,1 @@
+INSERT INTO Currency (currencyName,currencyCode,symbol,description) values ("NTD","NTD","&#36;","new TE Dollar");
