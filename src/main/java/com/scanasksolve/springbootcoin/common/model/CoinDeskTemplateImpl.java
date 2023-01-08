@@ -15,7 +15,7 @@ public class CoinDeskTemplateImpl implements CoinDeskTemplate {
     final private String COIN_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
     @Override
-    public Object getCoinDeskData() {
+    public String getCoinDeskData() {
         try {
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<String> response = restTemplate.getForEntity(new URI(COIN_URL), String.class);

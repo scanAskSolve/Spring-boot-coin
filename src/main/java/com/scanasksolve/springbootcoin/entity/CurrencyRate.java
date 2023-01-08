@@ -1,14 +1,16 @@
 package com.scanasksolve.springbootcoin.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "currency_rate")
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"updateTime", "currencyId"})})
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
 public class CurrencyRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +25,10 @@ public class CurrencyRate {
     @Column
     String updateTime;
 
+    public CurrencyRate(Long currencyRateId, Long currencyId, Double rate, String updateTime) {
+        this.currencyRateId = currencyRateId;
+        this.currencyId = currencyId;
+        this.rate = rate;
+        this.updateTime = updateTime;
+    }
 }
